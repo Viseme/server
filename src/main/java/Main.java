@@ -26,7 +26,7 @@ public class Main {
   public static void main(String[] args) throws Exception {
 
     //port(Integer.valueOf(System.getenv("PORT")));
-    HttpServer server = HttpServer.create(new InetSocketAddress( Integer.parseInt(System.getenv("PORT")) || 8000), 0);
+    HttpServer server = HttpServer.create(new InetSocketAddress( Integer.parseInt(System.getenv("PORT"))), 0);
     server.createContext("/", new MyHandler());
     server.setExecutor(null); // creates a default executor
     server.start();
