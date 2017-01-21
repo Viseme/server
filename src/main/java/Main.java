@@ -1,4 +1,4 @@
-import java.sql.*;
+/*import java.sql.*;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Map;
@@ -11,14 +11,26 @@ import spark.template.freemarker.FreeMarkerEngine;
 import spark.ModelAndView;
 import static spark.Spark.get;
 
-import com.heroku.sdk.jdbc.DatabaseUrl;
+import com.heroku.sdk.jdbc.DatabaseUrl;*/
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.InetSocketAddress;
+
+import com.sun.net.httpserver.HttpExchange;
+import com.sun.net.httpserver.HttpHandler;
+import com.sun.net.httpserver.HttpServer;
 
 public class Main {
 
   public static void main(String[] args) {
 
     port(Integer.valueOf(System.getenv("PORT")));
-    staticFileLocation("/public");
+    HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
+    server.createContext("/", new MyHandler());
+    server.setExecutor(null); // creates a default executor
+    server.start();
+    /*staticFileLocation("/public");
 
     get("/hello", (req, res) -> "Hello World");
 
@@ -53,8 +65,18 @@ public class Main {
       } finally {
         if (connection != null) try{connection.close();} catch(SQLException e){}
       }
-    }, new FreeMarkerEngine());
+    }, new FreeMarkerEngine());*/
 
   }
 
+  static class MyHandler implements HttpHandler {
+      @Override
+      public void handle(HttpExchange t) throws IOException {
+          String response = "Hello World!";
+          t.sendResponseHeaders(200, response.length());
+          OutputStream os = t.getResponseBody();
+          os.write(response.getBytes());
+          os.close();
+      }
+  }
 }
