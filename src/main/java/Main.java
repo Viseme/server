@@ -23,7 +23,7 @@ import com.sun.net.httpserver.HttpServer;
 
 public class Main {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Exception {
 
     //port(Integer.valueOf(System.getenv("PORT")));
     HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
