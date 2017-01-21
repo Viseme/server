@@ -67,8 +67,8 @@ window.onload = function() {
     }
 }
 
-function didntGetStream() {
-    alert('Stream generation failed.');
+function didntGetStream(err) {
+    alert('Stream generation failed.\nError: ' + err);
 }
 
 var mediaStreamSource = null;
