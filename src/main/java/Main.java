@@ -25,7 +25,7 @@ public class Main {
 
   public static void main(String[] args) {
 
-    port(Integer.valueOf(System.getenv("PORT")));
+    //port(Integer.valueOf(System.getenv("PORT")));
     HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
     server.createContext("/", new MyHandler());
     server.setExecutor(null); // creates a default executor
