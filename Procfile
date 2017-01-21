@@ -1,1 +1,1 @@
-web: node index.js
+web: java -cp target/classes:target/dependency/* com.viseme.server.app

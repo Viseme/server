@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Built-By: rooday
+Build-JDK: 1.8.0_91
+Created-By: Apache Maven
+Main-Class: com.viseme.server.app
+Archiver-Version: Plexus Archiver
