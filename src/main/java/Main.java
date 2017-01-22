@@ -34,10 +34,6 @@ public class Main {
     });
 
     ioserver.start();
-
-    while (true) {
-      
-    }
     /*Thread.sleep(Integer.MAX_VALUE);
 
     ioserver.stop();*/
