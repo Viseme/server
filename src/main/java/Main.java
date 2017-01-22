@@ -14,13 +14,8 @@ import com.corundumstudio.socketio.*;
 public class Main {
 
   public static void main(String[] args) throws Exception {
-    /*HttpServer server = HttpServer.create(new InetSocketAddress( Integer.parseInt(System.getenv("PORT"))), 0);
-    server.createContext("/", new MyHandler());
-    server.setExecutor(null); // creates a default executor
-    server.start();*/
-
     Configuration config = new Configuration();
-    config.setHostname("localhost");
+    config.setHostname("0.0.0.0");
     config.setOrigin("*");
     config.setPort(Integer.parseInt(System.getenv("PORT")));
 
@@ -37,16 +32,5 @@ public class Main {
     /*Thread.sleep(Integer.MAX_VALUE);
 
     ioserver.stop();*/
-  }
-
-  static class MyHandler implements HttpHandler {
-      @Override
-      public void handle(HttpExchange t) throws IOException {
-          String response = "Hello World!";
-          t.sendResponseHeaders(200, response.length());
-          OutputStream os = t.getResponseBody();
-          os.write(response.getBytes());
-          os.close();
-      }
   }
 }
