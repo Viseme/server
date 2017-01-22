@@ -16,8 +16,7 @@ public class Main {
   public static void main(String[] args) throws Exception {
     Configuration config = new Configuration();
     config.setHostname("0.0.0.0");
-    config.setOrigin("*");//"http://viseme.herokuapp.com,http://localhost:8000");
-    config.withCredentials = false;
+    config.setOrigin("http://localhost");
     config.setPort(Integer.parseInt(System.getenv("PORT")));
 
     final SocketIOServer ioserver = new SocketIOServer(config);
@@ -29,9 +28,14 @@ public class Main {
         }
     });
 
-    ioserver.start();
-    /*Thread.sleep(Integer.MAX_VALUE);
+    ioserver.addEventListener("ping", PingObject.class, new DataListener<PingObject>() {
+        @Override
+        public void onData(SocketIOClient client, PingObject data, AckRequest ackRequest) {
+            System.out.println("Ping: " + data.getMessage());
+            client.sendEvent("ping", new PingObject());
+        }
+    });
 
-    ioserver.stop();*/
+    ioserver.start();
   }
 }
