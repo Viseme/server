@@ -17,6 +17,7 @@ public class Main {
     Configuration config = new Configuration();
     config.setHostname("0.0.0.0");
     config.setOrigin("*");//"http://viseme.herokuapp.com,http://localhost:8000");
+    config.withCredentials = false;
     config.setPort(Integer.parseInt(System.getenv("PORT")));
 
     final SocketIOServer ioserver = new SocketIOServer(config);
