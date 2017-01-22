@@ -1,3 +1,3 @@
 # PROJECT: DIAMOND HAIL (aka Viseme)
 
-Viseme uses machine learning to predict text by lip reading users.
+Viseme uses the standard HTML5 Voice Recognition API for basic speech to text functionality. When ambient noise exceeds the threshold where voice recognition becomes no longer accurate, Viseme switches to device camera for lip reading. The video is streamed to Viseme machine learning engine running a neural network; recognized text is sent back to the frontend to be displayed as subtitles. Once the noise level drops, the system reverts back to audio-only speech-to-text recognition.
