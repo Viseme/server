@@ -35,9 +35,12 @@ public class Main {
 
     ioserver.start();
 
-    Thread.sleep(Integer.MAX_VALUE);
+    while (true) {
+      
+    }
+    /*Thread.sleep(Integer.MAX_VALUE);
 
-    ioserver.stop();
+    ioserver.stop();*/
   }
 
   static class MyHandler implements HttpHandler {
