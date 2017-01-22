@@ -36,6 +36,13 @@ public class Main {
         }
     });
 
+    ioserver.addEventListener("frame", FrameObject.class, new DataListener<FrameObject>() {
+        @Override
+        public void onData(SocketIOClient client, FrameObject data, AckRequest ackRequest) {
+            System.out.println("Data: " + data.getFrameData());
+        }
+    });
+
     ioserver.start();
   }
 }
