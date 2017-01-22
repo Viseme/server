@@ -1,4 +1,52 @@
-target
-.env
+# Java #
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+
+# media files #
+**/*.jpg
+**/*.jpeg
+**/*.mpg
+**/*.mp4
+**/*.bmp
+**/*.3gp
+**/*.mov
+**/*.MOV
+**/*.wmv
+
+# output files #
+*yes*.xml
+*no*.xml
+*hello*.xml
+*.csv
+*.log
+
+# Maven #
+target/
+
+# Eclipse #
+*.pydevproject
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+
+# IDEA #
 .idea/
+*.ipr
 *.iml
+*.iws
+output*
