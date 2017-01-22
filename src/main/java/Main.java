@@ -16,7 +16,7 @@ public class Main {
   public static void main(String[] args) throws Exception {
     Configuration config = new Configuration();
     config.setHostname("0.0.0.0");
-    config.setOrigin("http://viseme.herokuapp.com");
+    config.setOrigin("http://localhost:8000");
     config.setPort(Integer.parseInt(System.getenv("PORT")));
 
     final SocketIOServer ioserver = new SocketIOServer(config);
