@@ -14,14 +14,14 @@ import com.corundumstudio.socketio.*;
 public class Main {
 
   public static void main(String[] args) throws Exception {
-    HttpServer server = HttpServer.create(new InetSocketAddress( Integer.parseInt(System.getenv("PORT"))), 0);
+    /*HttpServer server = HttpServer.create(new InetSocketAddress( Integer.parseInt(System.getenv("PORT"))), 0);
     server.createContext("/", new MyHandler());
     server.setExecutor(null); // creates a default executor
-    server.start();
+    server.start();*/
 
     Configuration config = new Configuration();
     config.setHostname("localhost");
-    config.setPort(9092);
+    config.setPort(Integer.parseInt(System.getenv("PORT")));
 
     final SocketIOServer ioserver = new SocketIOServer(config);
     ioserver.addEventListener("chatevent", ChatObject.class, new DataListener<ChatObject>() {
