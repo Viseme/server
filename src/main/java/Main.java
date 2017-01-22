@@ -21,7 +21,7 @@ public class Main {
 
     Configuration config = new Configuration();
     config.setHostname("localhost");
-    config.setPort(9092);
+    config.setPort(Integer.parseInt(System.getenv("PORT")));
 
     final SocketIOServer ioserver = new SocketIOServer(config);
     ioserver.addEventListener("chatevent", ChatObject.class, new DataListener<ChatObject>() {
